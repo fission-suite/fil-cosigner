@@ -1,0 +1,15 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:12
+    env_file: .env
+    environment:
+      POSTGRES_USER: '${PGUSER}'
+      POSTGRES_PASSWORD: '${PGPASSWORD}'
+      POSTGRES_DB: '${PGDATABASE}'
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data:rw
+volumes:
+  postgres:
